@@ -1,3 +1,7 @@
+Script used to control volumes of specific application with 
+
+
+
 download:  
 
 [SoundVolumeView](https://www.nirsoft.net/utils/soundvolumeview-x64.zip) - extract & get path  
