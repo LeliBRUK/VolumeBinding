@@ -1,6 +1,4 @@
-Script used to control volumes of specific application with 
-
-
+Script used to control volumes of specific application with keyboard knob keybind  
 
 download:  
 
