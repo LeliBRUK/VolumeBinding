@@ -1,6 +1,12 @@
 ; Define the path to SoundVolumeView.exe
 SoundVolumeViewPath := "C:\(path here)\SoundVolumeView.exe"
 
+;return keys
+~+b::return
+~+d::return
+~b::return
+~d::return
+
 ; add the apps
 ; Hotkeys for controlling Spotify's volume
 Volume_Up::ChangeAppVolume("Spotify.exe", 10)    ; Increase volume by 5%
