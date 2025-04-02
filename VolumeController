@@ -1,5 +1,8 @@
-; Define the path to SoundVolumeView.exe
-SoundVolumeViewPath := "C:\(path here)\SoundVolumeView.exe"
+;setting temp file space
+SoundVolumeViewPath := A_Temp "\SoundVolumeView.exe"
+
+;extracting file to temp file locations
+FileInstall, SoundVolumeView.exe, %SoundVolumeViewPath%, 1
 
 ;return keys
 ~+b::return
@@ -8,7 +11,8 @@ SoundVolumeViewPath := "C:\(path here)\SoundVolumeView.exe"
 ~d::return
 
 ; add the apps
-; Hotkeys for controlling Spotify's volume
+
+; spotify
 Volume_Up::ChangeAppVolume("Spotify.exe", 10)    ; Increase volume by 5%
 Volume_Down::ChangeAppVolume("Spotify.exe", -10) ; Decrease volume by 5%
 Volume_Mute::ChangeAppVolume("Spotify.exe", -100)    ; Increase volume by 5%
@@ -24,8 +28,9 @@ D & Volume_Mute::ChangeAppVolume("Discord.exe", -100)    ; Increase volume by 5%
 ; Function to change the volume of a specific application
 ChangeAppVolume(appName, amount) {
     global SoundVolumeViewPath
-    ; Construct the command with parameters
+    ; Construct the command with parameters (calling SVV and using its command to manipulate)
     command := """" SoundVolumeViewPath """ /ChangeVolume """ appName """ " amount
-    ; Execute the command
+    ; Execute the command and keep it hidden
     RunWait, % command, , Hide
+
 }
